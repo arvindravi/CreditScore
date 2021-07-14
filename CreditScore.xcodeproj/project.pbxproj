@@ -3,18 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A44B67AA2697154E000334F2 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B67A92697154E000334F2 /* DonutView.swift */; };
 		A4F41FE42694ED5800794CD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FE32694ED5800794CD1 /* AppDelegate.swift */; };
 		A4F41FE62694ED5800794CD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FE52694ED5800794CD1 /* SceneDelegate.swift */; };
-		A4F41FE82694ED5800794CD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FE72694ED5800794CD1 /* ViewController.swift */; };
-		A4F41FEB2694ED5800794CD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F41FE92694ED5800794CD1 /* Main.storyboard */; };
 		A4F41FED2694ED5F00794CD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F41FEC2694ED5F00794CD1 /* Assets.xcassets */; };
 		A4F41FF02694ED5F00794CD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F41FEE2694ED5F00794CD1 /* LaunchScreen.storyboard */; };
 		A4F41FFB2694ED6000794CD1 /* CreditScoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FFA2694ED6000794CD1 /* CreditScoreTests.swift */; };
 		A4F420062694ED6000794CD1 /* CreditScoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420052694ED6000794CD1 /* CreditScoreUITests.swift */; };
+		A4F420142694EDAC00794CD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420132694EDAC00794CD1 /* Router.swift */; };
+		A4F420172694EE6A00794CD1 /* CreditKit in Frameworks */ = {isa = PBXBuildFile; productRef = A4F420162694EE6A00794CD1 /* CreditKit */; };
+		A4F420192694EE9300794CD1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420182694EE9300794CD1 /* HomePresenter.swift */; };
+		A4F4201B2694EE9B00794CD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4201A2694EE9B00794CD1 /* HomeViewController.swift */; };
+		A4F4201E26961BD300794CD1 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4201D26961BD300794CD1 /* HomePresenterTests.swift */; };
+		A4F4202126961C4D00794CD1 /* CreditKit+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4202026961C4D00794CD1 /* CreditKit+Stub.swift */; };
+		A4F4202526961DF000794CD1 /* MockCreditKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4202426961DF000794CD1 /* MockCreditKit.swift */; };
+		A4F420272696219B00794CD1 /* CreditInformationRawResponse+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420262696219B00794CD1 /* CreditInformationRawResponse+Mock.swift */; };
+		A4F42029269621F700794CD1 /* MockHomePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F42028269621F600794CD1 /* MockHomePresenterView.swift */; };
+		A4F4202B2696287100794CD1 /* CreditInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4202A2696287100794CD1 /* CreditInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A44B67A92697154E000334F2 /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
 		A4F41FE02694ED5800794CD1 /* CreditScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreditScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F41FE32694ED5800794CD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F41FE52694ED5800794CD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A4F41FE72694ED5800794CD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A4F41FEA2694ED5800794CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4F41FEC2694ED5F00794CD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4F41FEF2694ED5F00794CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4F41FF12694ED5F00794CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +57,15 @@
 		A4F420012694ED6000794CD1 /* CreditScoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreditScoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F420052694ED6000794CD1 /* CreditScoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreUITests.swift; sourceTree = "<group>"; };
 		A4F420072694ED6000794CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4F420132694EDAC00794CD1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A4F420182694EE9300794CD1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		A4F4201A2694EE9B00794CD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A4F4201D26961BD300794CD1 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		A4F4202026961C4D00794CD1 /* CreditKit+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditKit+Stub.swift"; sourceTree = "<group>"; };
+		A4F4202426961DF000794CD1 /* MockCreditKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreditKit.swift; sourceTree = "<group>"; };
+		A4F420262696219B00794CD1 /* CreditInformationRawResponse+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditInformationRawResponse+Mock.swift"; sourceTree = "<group>"; };
+		A4F42028269621F600794CD1 /* MockHomePresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomePresenterView.swift; sourceTree = "<group>"; };
+		A4F4202A2696287100794CD1 /* CreditInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F420172694EE6A00794CD1 /* CreditKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +119,10 @@
 			children = (
 				A4F41FE32694ED5800794CD1 /* AppDelegate.swift */,
 				A4F41FE52694ED5800794CD1 /* SceneDelegate.swift */,
-				A4F41FE72694ED5800794CD1 /* ViewController.swift */,
-				A4F41FE92694ED5800794CD1 /* Main.storyboard */,
-				A4F41FEC2694ED5F00794CD1 /* Assets.xcassets */,
-				A4F41FEE2694ED5F00794CD1 /* LaunchScreen.storyboard */,
-				A4F41FF12694ED5F00794CD1 /* Info.plist */,
+				A4F420132694EDAC00794CD1 /* Router.swift */,
+				A4F420302696288E00794CD1 /* Home View */,
+				A4F4202E2696288000794CD1 /* Credit Information View */,
+				A4F4201C26961B3800794CD1 /* Supporting Files */,
 			);
 			path = CreditScore;
 			sourceTree = "<group>";
@@ -113,8 +130,11 @@
 		A4F41FF92694ED6000794CD1 /* CreditScoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4F4202226961C5000794CD1 /* Stubs */,
+				A4F4202326961C5600794CD1 /* Mocks */,
 				A4F41FFA2694ED6000794CD1 /* CreditScoreTests.swift */,
 				A4F41FFC2694ED6000794CD1 /* Info.plist */,
+				A4F4201F26961BDA00794CD1 /* Presenter Tests */,
 			);
 			path = CreditScoreTests;
 			sourceTree = "<group>";
@@ -126,6 +146,60 @@
 				A4F420072694ED6000794CD1 /* Info.plist */,
 			);
 			path = CreditScoreUITests;
+			sourceTree = "<group>";
+		};
+		A4F4201C26961B3800794CD1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4F41FEC2694ED5F00794CD1 /* Assets.xcassets */,
+				A4F41FEE2694ED5F00794CD1 /* LaunchScreen.storyboard */,
+				A4F41FF12694ED5F00794CD1 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4F4201F26961BDA00794CD1 /* Presenter Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A4F4201D26961BD300794CD1 /* HomePresenterTests.swift */,
+			);
+			path = "Presenter Tests";
+			sourceTree = "<group>";
+		};
+		A4F4202226961C5000794CD1 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				A4F4202026961C4D00794CD1 /* CreditKit+Stub.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		A4F4202326961C5600794CD1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A4F4202426961DF000794CD1 /* MockCreditKit.swift */,
+				A4F42028269621F600794CD1 /* MockHomePresenterView.swift */,
+				A4F420262696219B00794CD1 /* CreditInformationRawResponse+Mock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A4F4202E2696288000794CD1 /* Credit Information View */ = {
+			isa = PBXGroup;
+			children = (
+				A4F4202A2696287100794CD1 /* CreditInformationViewController.swift */,
+			);
+			path = "Credit Information View";
+			sourceTree = "<group>";
+		};
+		A4F420302696288E00794CD1 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				A44B67A92697154E000334F2 /* DonutView.swift */,
+				A4F420182694EE9300794CD1 /* HomePresenter.swift */,
+				A4F4201A2694EE9B00794CD1 /* HomeViewController.swift */,
+			);
+			path = "Home View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +218,9 @@
 			dependencies = (
 			);
 			name = CreditScore;
+			packageProductDependencies = (
+				A4F420162694EE6A00794CD1 /* CreditKit */,
+			);
 			productName = CreditScore;
 			productReference = A4F41FE02694ED5800794CD1 /* CreditScore.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +292,9 @@
 				Base,
 			);
 			mainGroup = A4F41FD72694ED5800794CD1;
+			packageReferences = (
+				A4F420152694EE6A00794CD1 /* XCRemoteSwiftPackageReference "CreditKit" */,
+			);
 			productRefGroup = A4F41FE12694ED5800794CD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +313,6 @@
 			files = (
 				A4F41FF02694ED5F00794CD1 /* LaunchScreen.storyboard in Resources */,
 				A4F41FED2694ED5F00794CD1 /* Assets.xcassets in Resources */,
-				A4F41FEB2694ED5800794CD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4F41FE82694ED5800794CD1 /* ViewController.swift in Sources */,
+				A4F420142694EDAC00794CD1 /* Router.swift in Sources */,
 				A4F41FE42694ED5800794CD1 /* AppDelegate.swift in Sources */,
+				A4F420192694EE9300794CD1 /* HomePresenter.swift in Sources */,
 				A4F41FE62694ED5800794CD1 /* SceneDelegate.swift in Sources */,
+				A4F4202B2696287100794CD1 /* CreditInformationViewController.swift in Sources */,
+				A44B67AA2697154E000334F2 /* DonutView.swift in Sources */,
+				A4F4201B2694EE9B00794CD1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +352,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F41FFB2694ED6000794CD1 /* CreditScoreTests.swift in Sources */,
+				A4F4201E26961BD300794CD1 /* HomePresenterTests.swift in Sources */,
+				A4F42029269621F700794CD1 /* MockHomePresenterView.swift in Sources */,
+				A4F4202126961C4D00794CD1 /* CreditKit+Stub.swift in Sources */,
+				A4F4202526961DF000794CD1 /* MockCreditKit.swift in Sources */,
+				A4F420272696219B00794CD1 /* CreditInformationRawResponse+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +384,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4F41FE92694ED5800794CD1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4F41FEA2694ED5800794CD1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4F41FEE2694ED5F00794CD1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LKMWCFWZW;
-				INFOPLIST_FILE = CreditScore/Info.plist;
+				INFOPLIST_FILE = "CreditScore/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LKMWCFWZW;
-				INFOPLIST_FILE = CreditScore/Info.plist;
+				INFOPLIST_FILE = "CreditScore/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,6 +673,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A4F420152694EE6A00794CD1 /* XCRemoteSwiftPackageReference "CreditKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:///Users/arvind/Lab/techtasks/ClearScore/CreditKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4F420162694EE6A00794CD1 /* CreditKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4F420152694EE6A00794CD1 /* XCRemoteSwiftPackageReference "CreditKit" */;
+			productName = CreditKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4F41FD82694ED5800794CD1 /* Project object */;
 }
