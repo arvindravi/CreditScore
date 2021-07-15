@@ -36,7 +36,7 @@ final class HomePresenter {
     // MARK: Internal
     
     func fetchCreditScore() {
-        service.fetchCreditScore { [weak self] result in
+        service.fetchCreditInformation { [weak self] result in
             guard let self = self else { return }
             self.handleResult(result)
         }

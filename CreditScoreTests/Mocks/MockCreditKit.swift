@@ -20,7 +20,7 @@ final class MockCreditKit: CreditKitType {
     var mockedSuccessResult: CreditInformationRawResponse?
     var mockedFailureResult: CreditKit.Error?
     
-    func fetchCreditScore(result: @escaping CreditKit.CreditInformationResult) {
+    func fetchCreditInformation(result: @escaping CreditKit.CreditInformationResult) {
         capturedEvents.append(.fetchCreditScore)
         
         if let mockedSuccessResult = mockedSuccessResult {

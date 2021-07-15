@@ -8,7 +8,7 @@
 import CreditKit
 
 private final class StubCreditKit: CreditKitType {
-    func fetchCreditScore(result: @escaping CreditKit.CreditInformationResult) {
+    func fetchCreditInformation(result: @escaping CreditKit.CreditInformationResult) {
         // no-op
     }
 }
