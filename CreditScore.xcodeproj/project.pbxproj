@@ -13,7 +13,6 @@
 		A4F41FE62694ED5800794CD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FE52694ED5800794CD1 /* SceneDelegate.swift */; };
 		A4F41FED2694ED5F00794CD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F41FEC2694ED5F00794CD1 /* Assets.xcassets */; };
 		A4F41FF02694ED5F00794CD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F41FEE2694ED5F00794CD1 /* LaunchScreen.storyboard */; };
-		A4F41FFB2694ED6000794CD1 /* CreditScoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FFA2694ED6000794CD1 /* CreditScoreTests.swift */; };
 		A4F420062694ED6000794CD1 /* CreditScoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420052694ED6000794CD1 /* CreditScoreUITests.swift */; };
 		A4F420142694EDAC00794CD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420132694EDAC00794CD1 /* Router.swift */; };
 		A4F420192694EE9300794CD1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420182694EE9300794CD1 /* HomePresenter.swift */; };
@@ -52,7 +51,6 @@
 		A4F41FEF2694ED5F00794CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4F41FF12694ED5F00794CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F41FF62694ED6000794CD1 /* CreditScoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreditScoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4F41FFA2694ED6000794CD1 /* CreditScoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreTests.swift; sourceTree = "<group>"; };
 		A4F41FFC2694ED6000794CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F420012694ED6000794CD1 /* CreditScoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreditScoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F420052694ED6000794CD1 /* CreditScoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreUITests.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			children = (
 				A4F4202226961C5000794CD1 /* Stubs */,
 				A4F4202326961C5600794CD1 /* Mocks */,
-				A4F41FFA2694ED6000794CD1 /* CreditScoreTests.swift */,
 				A4F41FFC2694ED6000794CD1 /* Info.plist */,
 				A4F4201F26961BDA00794CD1 /* Presenter Tests */,
 			);
@@ -351,7 +348,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4F41FFB2694ED6000794CD1 /* CreditScoreTests.swift in Sources */,
 				A4F4201E26961BD300794CD1 /* HomePresenterTests.swift in Sources */,
 				A4F42029269621F700794CD1 /* MockHomePresenterView.swift in Sources */,
 				A4F4202126961C4D00794CD1 /* CreditKit+Stub.swift in Sources */,
