@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A44B67AA2697154E000334F2 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B67A92697154E000334F2 /* DonutView.swift */; };
+		A44B67B526A084EC000334F2 /* CreditKit in Frameworks */ = {isa = PBXBuildFile; productRef = A44B67B426A084EC000334F2 /* CreditKit */; };
 		A4F41FE42694ED5800794CD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FE32694ED5800794CD1 /* AppDelegate.swift */; };
 		A4F41FE62694ED5800794CD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FE52694ED5800794CD1 /* SceneDelegate.swift */; };
 		A4F41FED2694ED5F00794CD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F41FEC2694ED5F00794CD1 /* Assets.xcassets */; };
@@ -15,7 +16,6 @@
 		A4F41FFB2694ED6000794CD1 /* CreditScoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F41FFA2694ED6000794CD1 /* CreditScoreTests.swift */; };
 		A4F420062694ED6000794CD1 /* CreditScoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420052694ED6000794CD1 /* CreditScoreUITests.swift */; };
 		A4F420142694EDAC00794CD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420132694EDAC00794CD1 /* Router.swift */; };
-		A4F420172694EE6A00794CD1 /* CreditKit in Frameworks */ = {isa = PBXBuildFile; productRef = A4F420162694EE6A00794CD1 /* CreditKit */; };
 		A4F420192694EE9300794CD1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F420182694EE9300794CD1 /* HomePresenter.swift */; };
 		A4F4201B2694EE9B00794CD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4201A2694EE9B00794CD1 /* HomeViewController.swift */; };
 		A4F4201E26961BD300794CD1 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F4201D26961BD300794CD1 /* HomePresenterTests.swift */; };
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4F420172694EE6A00794CD1 /* CreditKit in Frameworks */,
+				A44B67B526A084EC000334F2 /* CreditKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +219,7 @@
 			);
 			name = CreditScore;
 			packageProductDependencies = (
-				A4F420162694EE6A00794CD1 /* CreditKit */,
+				A44B67B426A084EC000334F2 /* CreditKit */,
 			);
 			productName = CreditScore;
 			productReference = A4F41FE02694ED5800794CD1 /* CreditScore.app */;
@@ -293,7 +293,7 @@
 			);
 			mainGroup = A4F41FD72694ED5800794CD1;
 			packageReferences = (
-				A4F420152694EE6A00794CD1 /* XCRemoteSwiftPackageReference "CreditKit" */,
+				A44B67B326A084EC000334F2 /* XCRemoteSwiftPackageReference "CreditKit" */,
 			);
 			productRefGroup = A4F41FE12694ED5800794CD1 /* Products */;
 			projectDirPath = "";
@@ -675,9 +675,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A4F420152694EE6A00794CD1 /* XCRemoteSwiftPackageReference "CreditKit" */ = {
+		A44B67B326A084EC000334F2 /* XCRemoteSwiftPackageReference "CreditKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/arvind/Lab/techtasks/ClearScore/CreditKit";
+			repositoryURL = "https://github.com/arvindravi/CreditKit.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -686,9 +686,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A4F420162694EE6A00794CD1 /* CreditKit */ = {
+		A44B67B426A084EC000334F2 /* CreditKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A4F420152694EE6A00794CD1 /* XCRemoteSwiftPackageReference "CreditKit" */;
+			package = A44B67B326A084EC000334F2 /* XCRemoteSwiftPackageReference "CreditKit" */;
 			productName = CreditKit;
 		};
 /* End XCSwiftPackageProductDependency section */

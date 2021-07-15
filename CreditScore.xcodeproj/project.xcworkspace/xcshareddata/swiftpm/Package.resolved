@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "CreditKit",
-        "repositoryURL": "/Users/arvind/Lab/techtasks/ClearScore/CreditKit",
+        "repositoryURL": "https://github.com/arvindravi/CreditKit.git",
         "state": {
           "branch": "main",
-          "revision": "fbfdb55140705ec15a60844105c17db746a83a13",
+          "revision": "b196df2a319b6b43d42f38d9c5e7cff8c5863058",
           "version": null
         }
       }
