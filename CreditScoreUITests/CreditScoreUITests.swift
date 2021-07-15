@@ -8,35 +8,118 @@
 import XCTest
 
 class CreditScoreUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    
+    var app: XCUIApplication!
+    
+    // MARK: XCTestCase
+    
+    override func setUp() {
+        super.setUp()
+        
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        
+        app = XCUIApplication()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    
+    // MARK: - Tests
+    
+    func testHomeScreen() {
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        XCTAssertTrue(app.isDisplayingHomeScreen)
     }
+    
+    func testCreditScoreLoadJourney() {
+        app.launch()
+        
+        XCTAssertTrue(app.isDisplayingHomeScreen)
+        XCTAssertTrue(app.isDisplayingCreditScoreLabel)
+        
+        sleep(5) // NB: Sleeping for such a long time to ensure the data is loaded. In a production scenario, the UITests would be configured with a mock server that returns pre-configured data.
+        
+        XCTAssertEqual(app.creditScoreLabelElement.label, "514")
+    }
+    
+    func testDetailScreenJourney() {
+        app.launch()
+        
+        XCTAssertTrue(app.isDisplayingHomeScreen)
+        XCTAssertTrue(app.isDisplayingCreditScoreLabel)
+        
+        sleep(3) // NB: Sleeping for such a long time to ensure the data is loaded. In a production scenario, the UITests would be configured with a mock server that returns pre-configured data.
+        
+        app.creditScoreLabelElement.tap()
+        
+        XCTAssertTrue(app.isDisplayingCreditInformationView)
+        XCTAssertTrue(app.isDisplayingCreditInformationList)
+        
+        let firstCell = CreditInformationCell(index: 0)
+        let secondCell = CreditInformationCell(index: 1)
+        
+        sleep(3) // NB: Sleeping for such a long time to ensure the data is loaded. In a production scenario, the UITests would be configured with a mock server that returns pre-configured data.
+        
+        XCTAssertEqual(app.creditInformationCollectionElement.cells.count, 2)
+        XCTAssertEqual(firstCell.title, "Persona Type")
+        XCTAssertEqual(firstCell.value, "INEXPERIENCED")
+        
+        XCTAssertEqual(secondCell.title, "Dashboard Status")
+        XCTAssertEqual(secondCell.value, "PASS")
+    }
+}
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+extension XCUIApplication {
+    // Home Screen
+    
+    var isDisplayingHomeScreen: Bool {
+        otherElements["HomeViewController"].exists
+    }
+    
+    var isDisplayingCreditScoreLabel: Bool {
+        staticTexts["CreditScoreLabel"].exists
+    }
+    
+    var isDisplayingDonutView: Bool {
+        otherElements["DonutView"].exists
+    }
+    
+    var donutViewElement: XCUIElement {
+        otherElements["DonutView"]
+    }
+    
+    var creditScoreLabelElement: XCUIElement {
+        staticTexts["CreditScoreLabel"]
+    }
+    
+    // Credit Information View Screen
+    
+    var isDisplayingCreditInformationView: Bool {
+        otherElements["CreditInformationViewController"].exists
+    }
+    
+    var isDisplayingCreditInformationList: Bool {
+        collectionViews["CreditInformationCollectionView"].exists
+    }
+    
+    var creditInformationCollectionElement: XCUIElement {
+        collectionViews["CreditInformationCollectionView"]
+    }
+}
+
+private extension CreditScoreUITests {
+    struct CreditInformationCell {
+        let element: XCUIElement
+        
+        init(index: Int) {
+            self.element = XCUIApplication().creditInformationCollectionElement.cells.element(boundBy: index)
+            print(element.debugDescription)
+        }
+        
+        var title: String {
+            element.label
+        }
+        
+        var value: String {
+            element.value as? String ?? ""
         }
     }
 }

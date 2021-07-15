@@ -17,29 +17,61 @@ final class CreditInformationViewController: UIViewController {
     }
     
     enum ListItem: Hashable {
+        
         case personaType(String)
+        case dashboardStatus(String)
         case creditReportInfoHeader(String)
         case score(Int)
         case scoreBand(Int)
         case status(String)
+        case hasEverDefaulted(Bool)
+        case hasEverBeenDeliquent(Bool)
+        case percentageCreditUsed(Int)
+        case changedScore(Int)
+        case currentShortTermDebt(Int)
+        case currentLongTermDebt(Int)
+        case equifaxScoreBand(Int)
+        case equifaxScoreBandDescription(String)
+        case daysUntilNextReport(Int)
         
         var title: String {
             switch self {
             case .personaType: return "Persona Type"
+            case .dashboardStatus: return "Dashboard Status"
             case .creditReportInfoHeader: return "Credit Report Information"
             case .score: return "Credit Score"
             case .scoreBand: return "Score Band"
             case .status: return "Status"
+            case .hasEverDefaulted: return "Has Defaulted?"
+            case .hasEverBeenDeliquent: return "Has Been Deliquent?"
+            case .percentageCreditUsed: return "Percentage Credit Used"
+            case .changedScore: return "Changed Score"
+            case .currentShortTermDebt: return "Current Short Term Debt"
+            case .currentLongTermDebt: return "Current Long Term Debt"
+            case .equifaxScoreBand: return "Equifax Score Band"
+            case .equifaxScoreBandDescription: return "Equifax Score Band Desc."
+            case .daysUntilNextReport: return "Days Until Next Report"
             }
         }
         
         var description: String {
             switch self {
             case let .personaType(value),
+                 let .dashboardStatus(value),
                  let .creditReportInfoHeader(value),
-                 let .status(value): return value
+                 let .status(value),
+                 let .equifaxScoreBandDescription(value): return value
             case let .score(value),
-                 let .scoreBand(value): return "\(value)"
+                 let .scoreBand(value),
+                 let .percentageCreditUsed(value),
+                 let .changedScore(value),
+                 let .currentShortTermDebt(value),
+                 let .currentLongTermDebt(value),
+                 let .equifaxScoreBand(value),
+                 let .daysUntilNextReport(value): return "\(value)"
+            case let .hasEverDefaulted(value),
+                 let .hasEverBeenDeliquent(value): return value ? "Yes" : "No"
+                
             }
         }
         
@@ -60,7 +92,6 @@ final class CreditInformationViewController: UIViewController {
     private lazy var dataSource: DataSource = collectionViewDataSource()
     private lazy var collectionView: UICollectionView = collectionViewComponent()
     private lazy var cellRegistration: CreditInformationCellRegistration = collectionViewCellRegistration()
-    private lazy var detailCellRegistration: CreditInformationDetailCellRegistration = collectionViewDetailCellRegistration()
     private let creditInformation: CreditInformationRawResponse
     
     // MARK: - Intialiser -
@@ -80,14 +111,19 @@ final class CreditInformationViewController: UIViewController {
         super.viewDidLoad()
         setup()
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadListItems()
     }
     
     // MARK: Private
     
     private func setup() {
-        title = creditInformation.creditReportInfo.clientRef
+        title = creditInformation.creditReportInfo.clientRef.dropLast(5).uppercased()
         view.backgroundColor = .systemBackground
+        view.accessibilityIdentifier = "CreditInformationViewController"
     }
     
     private func setupViews() {
@@ -113,16 +149,27 @@ final class CreditInformationViewController: UIViewController {
     private func loadListItems() {
         var snapshot = NSDiffableDataSourceSectionSnapshot<ListItem>()
         let personaType = ListItem.personaType(creditInformation.personaType)
+        let dashboardStatus = ListItem.dashboardStatus(creditInformation.dashboardStatus)
         
         snapshot.append([
-            personaType
+            personaType,
+            dashboardStatus
         ])
         
         let creditReportInfoHeader = ListItem.creditReportInfoHeader("")
         let creditReportInfoItems = [
             ListItem.score(creditInformation.creditReportInfo.score),
             ListItem.scoreBand(creditInformation.creditReportInfo.scoreBand),
-            ListItem.status(creditInformation.creditReportInfo.status)
+            ListItem.status(creditInformation.creditReportInfo.status),
+            ListItem.hasEverDefaulted(creditInformation.creditReportInfo.hasEverDefaulted),
+            ListItem.hasEverBeenDeliquent(creditInformation.creditReportInfo.hasEverBeenDelinquent),
+            ListItem.percentageCreditUsed(creditInformation.creditReportInfo.percentageCreditUsed),
+            ListItem.changedScore(creditInformation.creditReportInfo.changedScore),
+            ListItem.currentShortTermDebt(creditInformation.creditReportInfo.currentShortTermDebt),
+            ListItem.currentLongTermDebt(creditInformation.creditReportInfo.currentLongTermDebt),
+            ListItem.equifaxScoreBand(creditInformation.creditReportInfo.equifaxScoreBand),
+            ListItem.equifaxScoreBandDescription(creditInformation.creditReportInfo.equifaxScoreBandDescription),
+            ListItem.daysUntilNextReport(creditInformation.creditReportInfo.daysUntilNextReport)
         ]
         
         snapshot.append([creditReportInfoHeader])
@@ -137,22 +184,19 @@ extension CreditInformationViewController {
         let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.backgroundColor = view.backgroundColor
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.layer.cornerRadius = 18
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemBackground
+        collectionView.contentInset = .init(top: 10, left: 0, bottom: 0, right: 0)
+        collectionView.accessibilityIdentifier = "CreditInformationCollectionView"
         return collectionView
     }
     
     private func collectionViewDataSource() -> DataSource {
         UICollectionViewDiffableDataSource(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath, listItem) -> UICollectionViewCell? in
-            switch listItem {
-            case .score, .scoreBand, .status:
-                return collectionView.dequeueConfiguredReusableCell(using: self.detailCellRegistration, for: indexPath, item: listItem)
-            default:
-                return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: listItem)
-            }
+            return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: listItem)
         }
     }
     
@@ -161,20 +205,11 @@ extension CreditInformationViewController {
             var content = UIListContentConfiguration.valueCell()
             content.text = item.title
             content.secondaryText = item.description
+            content.secondaryTextProperties.color = .systemGreen
             content.prefersSideBySideTextAndSecondaryText = true
             cell.contentConfiguration = content
             let headerOutlineDisclosure = UICellAccessory.OutlineDisclosureOptions(style: .header)
             cell.accessories = item.requiresDisclosureIndicator ? [.outlineDisclosure(options: headerOutlineDisclosure)] : []
-        }
-    }
-    
-    private func collectionViewDetailCellRegistration() -> CreditInformationDetailCellRegistration {
-        UICollectionView.CellRegistration { (cell: UICollectionViewListCell, indexPath, item) in
-            var content = cell.defaultContentConfiguration()
-            content.text = item.title
-            content.secondaryText = item.description
-            content.prefersSideBySideTextAndSecondaryText = true
-            cell.contentConfiguration = content
         }
     }
 }

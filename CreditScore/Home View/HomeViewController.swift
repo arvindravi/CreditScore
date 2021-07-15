@@ -21,7 +21,9 @@ final class HomeViewController: UIViewController {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemRed
+        label.textColor = .systemGreen
+        label.font = .monospacedDigitSystemFont(ofSize: 30, weight: .bold)
+        label.accessibilityIdentifier = "CreditScoreLabel"
         return label
     }()
     
@@ -47,12 +49,16 @@ final class HomeViewController: UIViewController {
         setup()
         setupGestureRecognizer()
         view.backgroundColor = .systemBackground
+        view.accessibilityIdentifier = "HomeViewController"
 
         presenter.view = self
         presenter.fetchCreditScore()
     }
     
     private func setup() {
+        title = "Credit Score · ✏️"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         view.addSubview(label)
         label.text = "0"
         NSLayoutConstraint.activate([

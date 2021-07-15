@@ -14,13 +14,11 @@ final class DonutView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        accessibilityIdentifier = "DonutView"
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func update() {
     }
     
     private func setup() {
@@ -30,17 +28,16 @@ final class DonutView: UIView {
                                         endAngle: 2 * .pi,
                                         clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        shapeLayer.lineWidth = 10
+        shapeLayer.strokeColor = UIColor.systemGreen.cgColor
+        shapeLayer.lineWidth = 15
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = .round
-        shapeLayer.fillColor = UIColor.white.cgColor
         layer.addSublayer(shapeLayer)
         
         animateAfterDelay()
     }
     
-    private func animateAfterDelay(delay: TimeInterval = 2) {
+    private func animateAfterDelay(delay: TimeInterval = 0.3) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             
