@@ -37,6 +37,7 @@ final class DonutView: UIView {
         animateAfterDelay()
     }
     
+    // NB: Doesn't indicate progress at the moment and is a static animation.
     private func animateAfterDelay(delay: TimeInterval = 0.3) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
